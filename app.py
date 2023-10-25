@@ -74,7 +74,7 @@ def stats(start=None, end=None):
         result = session.query(*sel).\
             filter(Measurement.date >= start).all()
         session.close()
-        temps = list(np.ravel(results))
+        temps = list(np.ravel(result))
         return jsonify(temps)
     
     start = dt.datetime.strptime(start, "%m%d%Y")
